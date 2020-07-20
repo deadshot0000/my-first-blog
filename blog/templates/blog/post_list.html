@@ -7,5 +7,12 @@
 <body>
     <H3>Hi There!!</H3>
     <p>Welcome to my blog.I hope u have fun even though its empty(just like my soul)</p>
+{% for post in posts %}
+    <div>
+        <H2><a href="">{{post.title}}</a></H2>
+        <p>published on : {{post.published_date}}</p>
+        <p>{{post.text|linebreaksbr}}</p>
+    </div>
+{% endfor %}
 </body>
 </html>
