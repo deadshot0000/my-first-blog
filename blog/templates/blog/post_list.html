@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>KIND OF MY BLOG</title>
-</head>
-<body>
-    <H3>Hi There!!</H3>
-    <p>Welcome to my blog.I hope u have fun even though its empty(just like my soul)</p>
-{% for post in posts %}
-    <div>
-        <H2><a href="">{{post.title}}</a></H2>
-        <p>published on : {{post.published_date}}</p>
-        <p>{{post.text|linebreaksbr}}</p>
-    </div>
-{% endfor %}
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+            {% for post in posts %}
+                <div class="post">
+
+                    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+{% endblock %}
